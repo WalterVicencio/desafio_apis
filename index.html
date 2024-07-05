@@ -16,14 +16,15 @@
         <hr>
         <div class="panel">
                 <h2>Pesos CPL</h2>
-                <input type="text">
+                <input id="entrada" type="number">
                 <h4>Moneda a convertir</h4>
-                <select name="" id="">
-                    <option value="">USD</option>
-                    <option value="">USD2</option>
+                <select id="tipos_cambio">
+                    <option value="dolar">Dolar</option>
+                    <option value="euro">Euro</option>
                 </select>
-                <button>Buscar</button>
-                <h3>Resultado:</h3>
+                <button onclick="get_change()">Buscar</button>
+                <h3 style="display: flex; align-items: center;">Resultado: <p id="res"></p></h3>
+                <script src="./assets/js/script.js"></script>
         </div>
     </main>
 </body>
