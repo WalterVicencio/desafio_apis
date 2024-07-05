@@ -4,18 +4,7 @@ async function get_data(){
         const res_data= await data.json()
 
         return res_data
-        /*
-        let keys=Object.keys(res_data)
-        let largo=keys.length
-        let tipos =keys.slice(3,largo)
-        let elementos = document.querySelector("#tipos_cambio")
-        tipos.forEach( element => {
-            elementos.innerHTML+=`
-            <option>${element}</option>
-            `
-        });
-        */
-        
+       
     }
     catch(error){
         console.log(error)
@@ -24,7 +13,6 @@ async function get_data(){
 }
 
 const entrada=document.querySelector("#entrada")
-
 
 
 async function generar_datos(cambio){
@@ -39,12 +27,6 @@ async function generar_datos(cambio){
 const cambio = document.getElementById("tipos_cambio");
 
 
-/*
-cambio.addEventListener("change", function() {
-    tipo_cambio = cambio.value;
-    console.log(tipo_cambio)
-    let resultado = await generar_datos(cambio.value)
-});*/
 
 async function get_change(){
     const res=document.querySelector("#res")
@@ -60,6 +42,36 @@ async function get_change(){
     
 }
 
+function renderGrafica() {
+    /*
+    const monedas = await getMonedas();
+    const config = prepararConfiguracionParaLaGrafica(monedas);
+    const chartDOM = document.getElementById("myChart");
+    new Chart(chartDOM, config);
+    */
+    const tipoDeGrafica = "line";
+    const nombresDeLasMonedas = ['enero','febrero','marzo'];
+    const titulo = "Monedas";
+    const colorDeLinea = "red";
+    const valores = [1,2,2];
+    const config = {
+        type: tipoDeGrafica,
+        data: {
+        labels: nombresDeLasMonedas,
+        datasets: [
+        {
+            label: titulo,
+            backgroundColor: colorDeLinea,
+            data: valores
+        }
+        ]
+        }
+    }
+    console.log(config)
+    const chartDOM = document.getElementById("myChart");
+    new Chart(chartDOM, config);
+}
+renderGrafica();
 
 /*
 const cambio = document.getElementById("tipos_cambio");
